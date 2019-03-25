@@ -20,6 +20,7 @@ class App extends Component {
         <div className="container">
           <SearchBar />
           <PostContainer />
+          <CommentSection />
           </div>
       </div>
     );
