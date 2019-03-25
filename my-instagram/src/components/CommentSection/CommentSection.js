@@ -12,13 +12,7 @@ const CommentSection = (props) => {
                 comments={obj}
                 />
                 )}
-                {/* <Comment /> */}
-                {/* <div className="user-comment-wrapper">
-                    <p><span class="commenter-name">{props.comments.username} </span>{props.comments.text}</p>
-                </div>
-                <div className="user-comment-wrapper">
-                    <p><span class="commenter-name">biancasaurus_ </span>T-minus a month until big/Little/Glil coffee dates!!! <span class="blue-text">@tiffany_monroy @msafransky</span></p>
-                </div> */}
+                
                 <div className="time-stamp-wrapper">
                     <span class="time-stamp">2 HOURS AGO</span>
                 </div>
