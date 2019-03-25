@@ -1,5 +1,6 @@
 import React from 'react'
 import './postContainer.css'
+import CommentSection from '../CommentSection/CommentSection'
 
 const PostContainer = (props) => {
     return (
@@ -18,6 +19,7 @@ const PostContainer = (props) => {
         <div className="likes-count-wrapper">
             <h3 className="likes-count">373 likes</h3>
         </div>
+        <CommentSection username={props.username}/>
     </div>
     )
 }
