@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
+
+.search-bar {
+    /* width: 30px;
+    height: 30px; */
+}
+
+.instagram-icon {
+    width: 30px;
+    height: 30px;
+    padding-right: 6px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.search-bar {
+    padding: 0 6px;
+}
+
+.user-icons {
+    padding: 0 6px;
+}
