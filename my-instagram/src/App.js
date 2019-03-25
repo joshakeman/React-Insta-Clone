@@ -27,14 +27,14 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <SearchBar />
-          <PostContainer username={dummyData[0].username}/>
-          {/* {this.state.dummyData.map((obj, index) => {
+          {/* <PostContainer username={dummyData[0].username}/> */}
+          {this.state.dummyData.map((obj, index) => 
             <PostContainer
               key={index}
               data={obj}
               />
-          })}
-           */}
+          )}
+          
         </div>
     </div>
     );

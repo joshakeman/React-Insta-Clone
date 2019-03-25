@@ -1,16 +1,24 @@
 import React from 'react'
+import Comment from './Comment'
 import './commentSection.css'
 
 const CommentSection = (props) => {
     return (
         <div className="comment-section-wrapper">
             <div className="user-comment-section">
-                <div className="user-comment-wrapper">
-                    <p><span class="commenter-name">{props.username} </span>We've got more than just delicious coffees to offer at our shops. Don't forget to check out our selection fo locally sou</p>
+                {props.comments.map((obj, key) =>
+                <Comment
+                key={key} 
+                comments={obj}
+                />
+                )}
+                {/* <Comment /> */}
+                {/* <div className="user-comment-wrapper">
+                    <p><span class="commenter-name">{props.comments.username} </span>{props.comments.text}</p>
                 </div>
                 <div className="user-comment-wrapper">
                     <p><span class="commenter-name">biancasaurus_ </span>T-minus a month until big/Little/Glil coffee dates!!! <span class="blue-text">@tiffany_monroy @msafransky</span></p>
-                </div>
+                </div> */}
                 <div className="time-stamp-wrapper">
                     <span class="time-stamp">2 HOURS AGO</span>
                 </div>
