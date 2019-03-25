@@ -6,7 +6,7 @@ const PostContainer = (props) => {
     return (
     <div className="post-container">    
         <div className="user-header">
-            <img src={process.env.PUBLIC_URL + '/img/moon-pic.jpg'} className="user-icon"/>
+            <img src={props.data.thumbnailUrl} className="user-icon"/>
             <h3 className="user-name">{props.data.username}</h3>
         </div>
         <div className="post-image-holder">
