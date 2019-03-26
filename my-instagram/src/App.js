@@ -19,6 +19,7 @@ class App extends Component {
 
     this.state = {
       dummyData: [],
+      search: ''
     }
   }
 
@@ -28,22 +29,36 @@ class App extends Component {
     })
   }
 
-  // addLikes = propKey => {
-    
-  //   console.log(this.state.dummyData[propKey])
-  //   console.log('firing addLikes function with propKey: ' + propKey)
+  handleChanges = (event) => {
+    this.setState({
+        [event.target.name]: event.target.value
+    })
+}
 
-  //   // this.state.dummyData[propKey].likes++
-  //   // this.setState({
-  //   //   this.state.dummyData[propKey].likes++
-  //   // })
-  // }
+  filterPosts = (event) => {
+    event.preventDefault();
+
+    const filteredList = dummyData.filter((post) => {
+      console.log(post.username)
+      return post.username === this.state.search
+    })
+
+    console.log(filteredList)
+
+    this.setState({
+      dummyData: filteredList
+    })
+    console.log(dummyData)
+  }
 
   render() {
     return (
       <div className="App">
         <div className="container">
-          <SearchBar />
+          <SearchBar 
+          handleChanges = {this.handleChanges}
+          filterPosts = {this.filterPosts}
+          />
           {/* <PostContainer username={dummyData[0].username}/> */}
           {this.state.dummyData.map((obj, index) => 
             <PostContainer
