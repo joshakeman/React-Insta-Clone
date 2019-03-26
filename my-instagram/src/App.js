@@ -18,8 +18,14 @@ class App extends Component {
     super();
 
     this.state = {
-      dummyData: dummyData,
+      dummyData: [],
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      dummyData: dummyData
+    })
   }
 
   // addLikes = propKey => {
