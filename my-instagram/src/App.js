@@ -22,10 +22,16 @@ class App extends Component {
     }
   }
 
-  addLikes = e => {
-    // this.state.dummyData.likes = this.state.dummyData.likes + 1
-    console.log(this.state.dummyData)
-  }
+  // addLikes = propKey => {
+    
+  //   console.log(this.state.dummyData[propKey])
+  //   console.log('firing addLikes function with propKey: ' + propKey)
+
+  //   // this.state.dummyData[propKey].likes++
+  //   // this.setState({
+  //   //   this.state.dummyData[propKey].likes++
+  //   // })
+  // }
 
   render() {
     return (
@@ -36,6 +42,7 @@ class App extends Component {
           {this.state.dummyData.map((obj, index) => 
             <PostContainer
               key={index}
+              prop_key={index}
               data={obj}
               addLikes={this.addLikes}
               />
