@@ -68,7 +68,7 @@ class CommentSection extends React.Component {
                                 ></input>
                             </form>
                     </div>
-                    <img src={process.env.PUBLIC_URL + '/img/ellipsis-h-solid.svg'} className="ellipsis"/>
+                    <img src={process.env.PUBLIC_URL + '/img/ellipsis-h-solid.svg'} alt="" className="ellipsis"/>
                 </div>
             </div>
         )

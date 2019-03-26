@@ -25,15 +25,15 @@ class PostContainer extends React.Component {
     return (
         <div className="post-container">    
             <div className="user-header">
-                <img src={this.state.data.thumbnailUrl} className="user-icon"/>
+                <img src={this.state.data.thumbnailUrl} alt="" className="user-icon"/>
                 <h3 className="user-name">{this.state.data.username}</h3>
             </div>
             <div className="post-image-holder">
-                <img src={this.state.data.imageUrl} className="post-image"></img>
+                <img src={this.state.data.imageUrl} alt="" className="post-image"></img>
             </div>
             <div className="post-buttons">
-                <img src={process.env.PUBLIC_URL + '/img/comments-regular.svg'} className="comment-button"/>
-                <img src={process.env.PUBLIC_URL + '/img/heart-regular.svg'} className="like-post-button" onClick={this.addLikes}/>
+                <img src={process.env.PUBLIC_URL + '/img/comments-regular.svg'} alt="" className="comment-button"/>
+                <img src={process.env.PUBLIC_URL + '/img/heart-regular.svg'} alt="" className="like-post-button" onClick={this.addLikes}/>
             </div>
             <div className="likes-count-wrapper">
                 <h3 className="likes-count">{this.state.likes} likes</h3>
