@@ -8,7 +8,7 @@ const SearchBar = (props) => {
     return (
     <div className='header'>
         <div className='logo'>
-            <img src={process.env.PUBLIC_URL + '/img/instagram-brands.svg'} className="instagram-icon"/> | <h2 class="search-bar">Instagram</h2>
+            <img src={process.env.PUBLIC_URL + '/img/instagram-brands.svg'} className="instagram-icon"/> | <h2 className="search-bar">Instagram</h2>
         </div>
         <div className="search-input">
             <input type="text" placeholder="Search.."></input>

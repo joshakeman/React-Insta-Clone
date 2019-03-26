@@ -1,6 +1,7 @@
 import React from 'react'
 import Comment from './Comment'
 import './commentSection.css'
+import PropTypes from 'prop-types'
 
 const CommentSection = (props) => {
     return (
@@ -14,7 +15,7 @@ const CommentSection = (props) => {
                 )}
                 
                 <div className="time-stamp-wrapper">
-                    <span class="time-stamp">2 HOURS AGO</span>
+                    <span className="time-stamp">2 HOURS AGO</span>
                 </div>
             </div>
 
@@ -27,5 +28,13 @@ const CommentSection = (props) => {
         </div>
     )
 }
+
+CommentSection.propTypes = {
+    comments: PropTypes.arrayOf(
+    PropTypes.shape({
+    })
+    )
+}
+
 
 export default CommentSection
