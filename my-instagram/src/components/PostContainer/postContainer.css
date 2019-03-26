@@ -45,6 +45,7 @@
 .like-post-button {
     width: 25px;
     height: 25px;
+    cursor: pointer;
 }
 
 .likes-count-wrapper {

@@ -4,6 +4,7 @@ import CommentSection from '../CommentSection/CommentSection'
 import PropTypes from 'prop-types'
 
 const PostContainer = (props) => {
+    // console.log(props)
     return (
     <div className="post-container">    
         <div className="user-header">
@@ -15,10 +16,10 @@ const PostContainer = (props) => {
         </div>
         <div className="post-buttons">
             <img src={process.env.PUBLIC_URL + '/img/comments-regular.svg'} className="comment-button"/>
-            <img src={process.env.PUBLIC_URL + '/img/heart-regular.svg'} className="like-post-button"/>
+            <img src={process.env.PUBLIC_URL + '/img/heart-regular.svg'} className="like-post-button" onClick={props.addLikes}/>
         </div>
         <div className="likes-count-wrapper">
-            <h3 className="likes-count">{props.data.likes}</h3>
+            <h3 className="likes-count">{props.data.likes} likes</h3>
         </div>
         <CommentSection
         comments={props.data.comments}

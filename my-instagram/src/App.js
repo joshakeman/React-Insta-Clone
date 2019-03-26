@@ -22,6 +22,11 @@ class App extends Component {
     }
   }
 
+  addLikes = e => {
+    // this.state.dummyData.likes = this.state.dummyData.likes + 1
+    console.log(this.state.dummyData)
+  }
+
   render() {
     return (
       <div className="App">
@@ -32,6 +37,7 @@ class App extends Component {
             <PostContainer
               key={index}
               data={obj}
+              addLikes={this.addLikes}
               />
           )}
           
