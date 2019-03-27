@@ -37,21 +37,27 @@ class App extends Component {
 
   filterPosts = (event) => {
     event.preventDefault();
+    console.log(this.state.search)
 
-    const filteredList = dummyData.filter((post) => {
-      console.log(post.username)
-      return post.username === this.state.search
+    const filteredList = this.state.dummyData.filter((post) => {
+      if (post.username === this.state.search){
+        return true
+      } else {
+        return false
+      }
+      
     })
 
     console.log(filteredList)
-
     this.setState({
-      dummyData: filteredList
+      dummyData: filteredList,
+      search: ''
     })
-    console.log(dummyData)
+    console.log(this.state.dummyData)
   }
 
   render() {
+    console.log(this.state.dummyData)
     return (
       <div className="App">
         <div className="container">
@@ -60,10 +66,10 @@ class App extends Component {
           filterPosts = {this.filterPosts}
           />
           {/* <PostContainer username={dummyData[0].username}/> */}
-          {this.state.dummyData.map((obj, index) => 
+          {this.state.dummyData.map((obj, timestamp) => 
             <PostContainer
-              key={index}
-              prop_key={index}
+              key={obj.timestamp}
+              // prop_key={index}
               data={obj}
               addLikes={this.addLikes}
               />
