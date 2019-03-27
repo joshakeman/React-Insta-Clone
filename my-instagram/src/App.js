@@ -4,6 +4,7 @@ import './App.css';
 // import CommentSection from './components/CommentSection/CommentSection'
 import PostContainer from './components/PostContainer/PostContainer'
 import SearchBar from './components/Searchbar/SearchBar'
+import PostsPage from './components/PostContainer/PostsPage'
 
 import dummyData from './dummy-data'
 
@@ -50,7 +51,7 @@ class App extends Component {
 
     console.log(filteredList)
     this.setState({
-      dummyData: filteredList,
+      dummyData: [...filteredList],
       search: ''
     })
     console.log(this.state.dummyData)
@@ -60,22 +61,27 @@ class App extends Component {
     console.log(this.state.dummyData)
     return (
       <div className="App">
-        <div className="container">
+      <PostsPage
+      data={this.state.dummyData} 
+      handleChanges={this.handleChanges}
+      filterPosts={this.filterPosts}
+      />
+        {/* <div className="container">
           <SearchBar 
           handleChanges = {this.handleChanges}
           filterPosts = {this.filterPosts}
           />
           {/* <PostContainer username={dummyData[0].username}/> */}
-          {this.state.dummyData.map((obj, timestamp) => 
+          {/* {this.state.dummyData.map((obj, timestamp) => 
             <PostContainer
               key={obj.timestamp}
               // prop_key={index}
               data={obj}
               addLikes={this.addLikes}
               />
-          )}
+          )} */} 
           
-        </div>
+        {/* </div> */}
     </div>
     );
   }
