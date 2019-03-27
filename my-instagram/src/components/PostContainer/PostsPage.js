@@ -9,13 +9,10 @@ const PostsPage = (props) => {
           handleChanges = {props.handleChanges}
           filterPosts = {props.filterPosts}
           />
-          {/* <PostContainer username={dummyData[0].username}/> */}
           {props.data.map((obj, timestamp) => 
             <PostContainer
               key={obj.timestamp}
-              // prop_key={index}
               data={obj}
-            //   addLikes={this.addLikes}
               />
           )}
         </div>

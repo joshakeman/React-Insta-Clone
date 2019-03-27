@@ -5,6 +5,8 @@ import './App.css';
 import PostContainer from './components/PostContainer/PostContainer'
 import SearchBar from './components/Searchbar/SearchBar'
 import PostsPage from './components/PostContainer/PostsPage'
+import withAuthenticate from './authentication/withAuthenticate'
+import Login from './components/Login/Login'
 
 import dummyData from './dummy-data'
 
@@ -13,6 +15,8 @@ import dummyData from './dummy-data'
 // import { faInstagram } from '@fortawesome/free-solid-svg-icons'
 
 // library.add(faInstagram)
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
 
 class App extends Component {
   constructor() {
@@ -61,11 +65,20 @@ class App extends Component {
     console.log(this.state.dummyData)
     return (
       <div className="App">
-      <PostsPage
+
+      {/* <Login /> */}
+
+      <ComponentFromWithAuthenticate 
+        data={this.state.dummyData} 
+        handleChanges={this.handleChanges}
+        filterPosts={this.filterPosts}
+      />
+      
+      {/* <PostsPage
       data={this.state.dummyData} 
       handleChanges={this.handleChanges}
       filterPosts={this.filterPosts}
-      />
+      /> */}
         {/* <div className="container">
           <SearchBar 
           handleChanges = {this.handleChanges}
@@ -82,7 +95,7 @@ class App extends Component {
           )} */} 
           
         {/* </div> */}
-    </div>
+      </div>
     );
   }
 }
