@@ -1,0 +1,63 @@
+.post-container {
+    border: 1px solid lightgray;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 640px;
+    align-self: center;
+    border-bottom: none;
+}
+
+.user-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 640px;
+    align-self: center;
+}
+.user-icon {
+    width: 45px;
+    height: 45px;
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
+.post-image {
+    width: 640px;
+}
+
+.post-buttons {
+    align-self: center;
+    width: 640px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.comment-button {
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+}
+
+.like-post-button {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.likes-count-wrapper {
+    width: 640px;
+    align-self: center;
+
+}
+
+.likes-count {
+    text-align: left;
+    margin: 0;
+    font-size: 1em;
+    margin: 0 10px;
+
+}
