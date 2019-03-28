@@ -24,6 +24,7 @@ const SearchBar = (props) => {
             <img src={process.env.PUBLIC_URL + '/img/user-regular.svg'} alt="" className="instagram-icon"/>
             <img src={process.env.PUBLIC_URL + '/img/compass-regular.svg'} alt="" className="instagram-icon"/>
             <img src={process.env.PUBLIC_URL + '/img/heart-regular.svg'} alt="" className="instagram-icon"/>
+            <button onClick={props.logout} className="logout-button">Logout</button>
         </div>
         
     </div>

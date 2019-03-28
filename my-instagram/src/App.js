@@ -27,10 +27,25 @@ class App extends Component {
     })
   }
 
+  logout = () => {
+    console.log('logout is firing!')
+      localStorage.clear()
+      
+      this.setState({
+        loggedIn: false
+      })
+  }
+
   componentDidMount() {
     this.setState({
         dummyData: dummyData,  
     })
+
+    if (localStorage.getItem('user')) {
+      this.setState({
+        loggedIn:true
+      })
+    }
   }
 
   handleChanges = (event) => {
@@ -71,6 +86,7 @@ class App extends Component {
         filterPosts={this.filterPosts}
         loggedIn={this.state.loggedIn}
         authenticateLogin={this.authenticateLogin}
+        logout={this.logout}
       />
       </div>
     );

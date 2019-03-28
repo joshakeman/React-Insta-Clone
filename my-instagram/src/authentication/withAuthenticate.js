@@ -8,7 +8,7 @@ class extends React.Component {
     }
     render() {
         if (this.props.loggedIn === false) {
-            return <Login authenticateLogin={this.props.authenticateLogin}/>
+            return <Login login={this.props.login}/>
         } else {
       return <Component 
       {...this.props}

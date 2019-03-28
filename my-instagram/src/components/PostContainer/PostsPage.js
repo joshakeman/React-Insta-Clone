@@ -9,6 +9,7 @@ const PostsPage = (props) => {
           <SearchBar 
           handleChanges = {props.handleChanges}
           filterPosts = {props.filterPosts}
+          logout = {props.logout}
           />
           {props.data.map((obj, timestamp) => 
             <PostContainer
