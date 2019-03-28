@@ -29,7 +29,7 @@ const SearchBar = (props) => {
             <img src={process.env.PUBLIC_URL + '/img/instagram-brands.svg'} alt="" className="instagram-icon"/> | <h2 className="search-bar">Instagram</h2>
         </Logo>
         <div className="search-input">
-            <form onSubmit={props.filterPosts}>
+            <form>
                 <input 
                 type="text" 
                 placeholder="Search.."

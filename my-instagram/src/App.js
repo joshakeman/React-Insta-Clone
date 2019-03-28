@@ -25,6 +25,7 @@ class App extends Component {
 
     this.state = {
       dummyData: [],
+      filteredData: [],
       search: '',
       loggedIn: false
     }
@@ -47,7 +48,8 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({
-        dummyData: dummyData,  
+        dummyData: dummyData,
+        filteredData: Array.from(dummyData) 
     })
 
     if (localStorage.getItem('user')) {
@@ -57,32 +59,42 @@ class App extends Component {
     }
   }
 
-  handleChanges = (event) => {
+  handleChanges = (e) => {
     this.setState({
-        [event.target.name]: event.target.value
+        filteredData: this.state.dummyData.filter(d =>
+          d.username.includes(e.target.value)
+        ),
+        [e.target.name]: e.target.value
     })
-}
-
-  filterPosts = (event) => {
-    event.preventDefault();
-    console.log(this.state.search)
-
-    const filteredList = this.state.dummyData.filter((post) => {
-      if (post.username === this.state.search){
-        return true
-      } else {
-        return false
-      }
-      
-    })
-
-    console.log(filteredList)
-    this.setState({
-      dummyData: [...filteredList],
-      search: ''
-    })
-    console.log(this.state.dummyData)
   }
+//     const filteredList = this.state.dummyData.filter((post) => {
+//       if (post.username === this.state.search){
+//         return true
+//       } else {
+//         return false
+//       }
+// }
+
+  // filterPosts = (event) => {
+  //   event.preventDefault();
+  //   console.log(this.state.search)
+
+  //   const filteredList = this.state.dummyData.filter((post) => {
+  //     if (post.username === this.state.search){
+  //       return true
+  //     } else {
+  //       return false
+  //     }
+      
+  //   })
+
+  //   console.log(filteredList)
+  //   this.setState({
+  //     dummyData: [...filteredList],
+  //     search: ''
+  //   })
+  //   console.log(this.state.dummyData)
+  // }
 
   render() {
     console.log(this.state.dummyData)
@@ -90,7 +102,7 @@ class App extends Component {
       <AppStyled>
 
       <ComponentFromWithAuthenticate 
-        data={this.state.dummyData} 
+        data={this.state.filteredData} 
         handleChanges={this.handleChanges}
         filterPosts={this.filterPosts}
         loggedIn={this.state.loggedIn}
