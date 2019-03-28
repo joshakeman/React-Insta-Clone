@@ -3,6 +3,7 @@ import SearchBar from '../Searchbar/SearchBar'
 import PostContainer from './PostContainer'
 
 const PostsPage = (props) => {
+    console.log(props)
     return (
         <div className="container">
           <SearchBar 

@@ -10,27 +10,26 @@ import Login from './components/Login/Login'
 
 import dummyData from './dummy-data'
 
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faInstagram } from '@fortawesome/free-solid-svg-icons'
-
-// library.add(faInstagram)
-
-const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
-
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
       dummyData: [],
-      search: ''
+      search: '',
+      loggedIn: false
     }
+  }
+
+  authenticateLogin = () => {
+    this.setState({
+      loggedIn: true,
+    })
   }
 
   componentDidMount() {
     this.setState({
-      dummyData: dummyData
+        dummyData: dummyData,  
     })
   }
 
@@ -66,38 +65,18 @@ class App extends Component {
     return (
       <div className="App">
 
-      {/* <Login /> */}
-
       <ComponentFromWithAuthenticate 
         data={this.state.dummyData} 
         handleChanges={this.handleChanges}
         filterPosts={this.filterPosts}
+        loggedIn={this.state.loggedIn}
+        authenticateLogin={this.authenticateLogin}
       />
-      
-      {/* <PostsPage
-      data={this.state.dummyData} 
-      handleChanges={this.handleChanges}
-      filterPosts={this.filterPosts}
-      /> */}
-        {/* <div className="container">
-          <SearchBar 
-          handleChanges = {this.handleChanges}
-          filterPosts = {this.filterPosts}
-          />
-          {/* <PostContainer username={dummyData[0].username}/> */}
-          {/* {this.state.dummyData.map((obj, timestamp) => 
-            <PostContainer
-              key={obj.timestamp}
-              // prop_key={index}
-              data={obj}
-              addLikes={this.addLikes}
-              />
-          )} */} 
-          
-        {/* </div> */}
       </div>
     );
   }
 }
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
 
 export default App;

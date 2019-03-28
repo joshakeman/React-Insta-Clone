@@ -1,8 +1,8 @@
 import React from 'react'
 
 class Login extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state= {
             user: '',
@@ -26,7 +26,7 @@ class Login extends React.Component {
         return(
             <div>
                 <h1>Login Page</h1>
-                <form>
+                <form onSubmit={this.props.authenticateLogin}> 
                     <input name="user" placeholder="user" onChange={this.handleChanges} />
                     <input name="password" placeholder="password" onChange={this.handleChanges} />
                     <button onClick={this.login}>Login</button>
