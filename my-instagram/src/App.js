@@ -8,7 +8,16 @@ import PostsPage from './components/PostContainer/PostsPage'
 import withAuthenticate from './authentication/withAuthenticate'
 import Login from './components/Login/Login'
 
+import styled from "styled-components";
+
+
 import dummyData from './dummy-data'
+
+const AppStyled = styled.div`
+  text-align: center;
+  display: flex;
+  justify-content: center;
+`
 
 class App extends Component {
   constructor() {
@@ -78,7 +87,7 @@ class App extends Component {
   render() {
     console.log(this.state.dummyData)
     return (
-      <div className="App">
+      <AppStyled>
 
       <ComponentFromWithAuthenticate 
         data={this.state.dummyData} 
@@ -88,11 +97,11 @@ class App extends Component {
         authenticateLogin={this.authenticateLogin}
         logout={this.logout}
       />
-      </div>
+      </AppStyled>
     );
   }
 }
 
-const ComponentFromWithAuthenticate = withAuthenticate(Login)(PostsPage);
+const ComponentFromWithAuthenticate = withAuthenticate(Login)(PostsPage)();
 
 export default App;

@@ -22,9 +22,7 @@ import PostsPage from '../components/PostContainer/PostsPage'
 
 const withAuthenticate = Login => PostPage => props =>
 class extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+    
     render() {
         if (!this.props.loggedIn) {
             return <Login login={this.props.login}/>
@@ -37,3 +35,16 @@ class extends React.Component {
 
 
 export default withAuthenticate
+
+// const withAuthenticate = function(Login) {
+//     return function(PostPage) {
+//         return function(props) {
+//             if (!this.props.loggedIn) {
+//                 return <Login login={this.props.login}/>
+//             } else {
+//           return <PostPage 
+//           {...this.props}
+//           />}
+//         }
+//     }
+// }
