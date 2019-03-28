@@ -26,7 +26,7 @@ class extends React.Component {
         super(props)
     }
     render() {
-        if (!localStorage.getItem('user')) {
+        if (!this.props.loggedIn) {
             return <Login login={this.props.login}/>
         } else {
       return <PostPage 
