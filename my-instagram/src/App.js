@@ -93,6 +93,6 @@ class App extends Component {
   }
 }
 
-const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
+const ComponentFromWithAuthenticate = withAuthenticate(Login)(PostsPage);
 
 export default App;
