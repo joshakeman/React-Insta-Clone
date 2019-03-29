@@ -4,14 +4,20 @@ import './App.css';
 // import CommentSection from './components/CommentSection/CommentSection'
 import PostContainer from './components/PostContainer/PostContainer'
 import SearchBar from './components/Searchbar/SearchBar'
+import PostsPage from './components/PostContainer/PostsPage'
+import withAuthenticate from './authentication/withAuthenticate'
+import Login from './components/Login/Login'
+
+import styled from "styled-components";
+
 
 import dummyData from './dummy-data'
 
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faInstagram } from '@fortawesome/free-solid-svg-icons'
-
-// library.add(faInstagram)
+const AppStyled = styled.div`
+  text-align: center;
+  display: flex;
+  justify-content: center;
+`
 
 class App extends Component {
   constructor() {
@@ -19,66 +25,95 @@ class App extends Component {
 
     this.state = {
       dummyData: [],
-      search: ''
+      filteredData: [],
+      search: '',
+      loggedIn: false
     }
+  }
+
+  authenticateLogin = () => {
+    this.setState({
+      loggedIn: true,
+    })
+  }
+
+  logout = () => {
+    console.log('logout is firing!')
+      localStorage.clear()
+      
+      this.setState({
+        loggedIn: false
+      })
   }
 
   componentDidMount() {
     this.setState({
-      dummyData: dummyData
+        dummyData: dummyData,
+        filteredData: Array.from(dummyData) 
     })
+
+    if (localStorage.getItem('user')) {
+      this.setState({
+        loggedIn:true
+      })
+    }
   }
 
-  handleChanges = (event) => {
+  handleChanges = (e) => {
     this.setState({
-        [event.target.name]: event.target.value
+        filteredData: this.state.dummyData.filter(d =>
+          d.username.includes(e.target.value)
+        ),
+        [e.target.name]: e.target.value
     })
-}
+  }
+//     const filteredList = this.state.dummyData.filter((post) => {
+//       if (post.username === this.state.search){
+//         return true
+//       } else {
+//         return false
+//       }
+// }
 
-  filterPosts = (event) => {
-    event.preventDefault();
-    console.log(this.state.search)
+  // filterPosts = (event) => {
+  //   event.preventDefault();
+  //   console.log(this.state.search)
 
-    const filteredList = this.state.dummyData.filter((post) => {
-      if (post.username === this.state.search){
-        return true
-      } else {
-        return false
-      }
+  //   const filteredList = this.state.dummyData.filter((post) => {
+  //     if (post.username === this.state.search){
+  //       return true
+  //     } else {
+  //       return false
+  //     }
       
-    })
+  //   })
 
-    console.log(filteredList)
-    this.setState({
-      dummyData: filteredList,
-      search: ''
-    })
-    console.log(this.state.dummyData)
-  }
+  //   console.log(filteredList)
+  //   this.setState({
+  //     dummyData: [...filteredList],
+  //     search: ''
+  //   })
+  //   console.log(this.state.dummyData)
+  // }
 
   render() {
     console.log(this.state.dummyData)
     return (
-      <div className="App">
-        <div className="container">
-          <SearchBar 
-          handleChanges = {this.handleChanges}
-          filterPosts = {this.filterPosts}
-          />
-          {/* <PostContainer username={dummyData[0].username}/> */}
-          {this.state.dummyData.map((obj, timestamp) => 
-            <PostContainer
-              key={obj.timestamp}
-              // prop_key={index}
-              data={obj}
-              addLikes={this.addLikes}
-              />
-          )}
-          
-        </div>
-    </div>
+      <AppStyled>
+
+      <ComponentFromWithAuthenticate 
+        data={this.state.filteredData} 
+        handleChanges={this.handleChanges}
+        filterPosts={this.filterPosts}
+        loggedIn={this.state.loggedIn}
+        authenticateLogin={this.authenticateLogin}
+        logout={this.logout}
+      />
+      </AppStyled>
     );
   }
 }
+
+const ComponentFromWithAuthenticate = withAuthenticate(Login)(PostsPage)();
 
 export default App;
